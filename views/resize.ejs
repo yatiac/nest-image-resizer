@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalabel=0"
+    />
+    <title>Image Resizer (YATIAC)</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <br /><br />
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">NestJS Image resizer by Yatiac</h4>
+        <p>
+          this image resizer was done in NodeJS + NestJS using sharp library,
+          check more info here:
+          <a href="https://github.com/yatiac/nest-image-resizer"
+            >https://github.com/yatiac/nest-image-resizer</a
+          >
+        </p>
+      </div>
+      <br /><br />
+      <form action="image-resizer/resize" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <input type="file" class="form-control-file" name="file" required />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-block btn-danger">
+            Reduce this image to half its size
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</html>
