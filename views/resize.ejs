@@ -28,9 +28,11 @@
       <form action="image-resizer/resize" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <input type="file" class="form-control-file" name="file" required accept="image/jpg, image/gif, image/png, image/webp" />
+          <input type="number" name="height" id="height" placeholder="height">
+          <input type="number" name="width" id="width" placeholder="width">
         </div>
         <div class="form-group">
-          <button class="btn btn-block btn-danger">
+          <button class="btn btn-block btn-danger" id="submit">
             Reduce this image to half its size
           </button>
         </div>
@@ -38,4 +40,18 @@
     </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    const heightInput = document.getElementById('height');
+    const widthInput = document.getElementById('width');
+    const submitButton = document.getElementById('submit');
+    const keyUPListener = () => {
+      if (heightInput.value && widthInput.value)   { 
+        submitButton.innerText = `Resize image to ${heightInput.value}px by ${widthInput.value}px`;
+      } else { 
+        submitButton.innerText = ` Reduce this image to half its size`;
+      }
+    };
+    heightInput.addEventListener('keyup', keyUPListener);
+    widthInput.addEventListener('keyup', keyUPListener);
+  </script>
 </html>

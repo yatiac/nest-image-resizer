@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Header,
   Post,
@@ -18,10 +19,13 @@ export class ImageResizerController {
   async resize(
     @UploadedFile() file: Express.Multer.File,
     @Res() res: Response,
+    @Body() body: any,
   ) {
     try {
       const resizedImage = await this.imageResizerService.downSizeImageToHalf(
         file.buffer,
+        body.height,
+        body.width,
       );
       res.set(
         'Content-disposition',
