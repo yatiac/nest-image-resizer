@@ -14,7 +14,7 @@ export class ImageResizerService {
     width = width ? width : imageMetadata.width / 2;
     console.log(height, width);
     const resizedImage = await sharpImage
-      .resize(width / 2, height / 2)
+      .resize(width, height)
       .withMetadata()
       .toBuffer();
     return resizedImage;
